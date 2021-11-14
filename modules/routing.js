@@ -42,7 +42,6 @@ const server = http.createServer((req, res) => {
     }
 
     console.log('data page ok :>> ', basePath);
-    // res.write('<head><link rel="stylesheet" type="text/css" href="./style.css"></head>');
     return res.end(data);
   });
 });

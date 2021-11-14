@@ -1,5 +1,6 @@
 const express = require('express');
 const favicon = require('serve-favicon');
+const morgan = require('morgan');
 const path = require('path');
 
 const PORT = 3006;
@@ -13,6 +14,10 @@ const createPath = (page) => path.join(__dirname, 'ejs-views', `${page}.ejs`);
 app.listen(PORT, (error, data) => {
   console.log(error || `listening port ${PORT}`);
 });
+
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
+
+app.use(express.static(path.join(__dirname, 'styles')));
 
 app.use(favicon(path.resolve(__dirname, 'favicon.ico')));
 
